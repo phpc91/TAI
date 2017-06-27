@@ -17,7 +17,7 @@
 	
 	<h1>Orçamento rápido</h1>
 	<div style="text-align:center">
-		<form action="/TAI/calcular_simples.jsp" method="post">
+		<form action="/TAI/calcular_simples.jsp" method="post"> <!-- form action? -->
 			<p title="Inserir apenas números">Valor da conta de luz:</p> <input type="number" name="valor"><br><br>
 			<!-- <p title="Inserir apenas números">CEP:</p> <input type="number" name="cep"><br><br> <!-- validar CEP -->
 			Estado:<br> 
