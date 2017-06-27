@@ -38,7 +38,7 @@ public class EstadoDAO implements InterfaceEstadoDAO {
 			Connection conn = createConnection();
 			Statement statement = conn.createStatement();
 
-			ResultSet resultSet = statement.executeQuery("SELECT * FROM Estado ORDER BY id");
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM Estado ORDER BY id_estado");
 			
 			while (resultSet.next()){
 				Estado estado = new Estado();
