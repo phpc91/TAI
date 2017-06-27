@@ -13,7 +13,7 @@ p	{text-align:center;font-family:calibri}
 <body>
 	<h1>Home</h1>
 	<p>Estime aqui seu investimento</p>
-	<p title="Orçamento usando apenas seu CEP e valor de conta de luz"><a href="/TAI/orc_simples.jsp">Orçamento Simples</a></p>
-	<p><a href="/TAI/orc_completo.jsp">Orçamento Completo</a>
+	<p title="Orçamento usando apenas seu CEP e valor de conta de luz"><a href="/TAI/orcamentoSimples.jsp">Orçamento Simples</a></p>
+	<p><a href="/TAI/orcamentoCompleto.jsp">Orçamento Completo</a>
 </body>
 </html>
