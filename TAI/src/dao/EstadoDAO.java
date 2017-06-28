@@ -14,6 +14,7 @@ public class EstadoDAO implements InterfaceEstadoDAO {
 	private static final EstadoDAO instance = new EstadoDAO();
 	//esconder credenciais de conexao
 	private String user="admin", passwd="admin123";
+	private String endpoint="tai-db.cyki8d0w5wwv.sa-east-1.rds.amazonaws.com/database";
 	
 	public EstadoDAO(){
 		try{
@@ -24,7 +25,7 @@ public class EstadoDAO implements InterfaceEstadoDAO {
 	}
 	
 	public Connection createConnection() throws SQLException{
-		return DriverManager.getConnection("jdbc:mariadb://tai-db.cyki8d0w5wwv.sa-east-1.rds.amazonaws.com?user="+user+"&password="+passwd);
+		return DriverManager.getConnection("jdbc:mariadb://"+endpoint+"?user="+user+"&password="+passwd);
 	}
 
 	public static EstadoDAO getInstance() {
@@ -88,7 +89,7 @@ Estado estado = new Estado();
 			Connection conn = createConnection();
 			Statement stat = conn.createStatement();
 			
-			ResultSet result = stat.executeQuery("SELECT * FROM Estado WHERE nome_estado LIKE '" +sigla+ "%'");
+			ResultSet result = stat.executeQuery("SELECT * FROM Estado WHERE sigla LIKE '" +sigla+ "%'");
 			result.next();
 			
 			estado.setId(result.getInt("id_estado"));

@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Home
  */
-@WebServlet(name="HomeController", urlPatterns={"/"})
+@WebServlet(name="HomeController", urlPatterns={"/index"})
 public class HomeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

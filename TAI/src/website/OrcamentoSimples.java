@@ -17,7 +17,7 @@ import entidades.Estado;
 /**
  * Servlet implementation class OrcamentoSimples
  */
-@WebServlet(name="Orçamento Simples", urlPatterns={"/orc_simples"})
+@WebServlet({"/orcamento/*"})
 public class OrcamentoSimples extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static EstadoDAO estadoDAO = EstadoDAO.getInstance();
