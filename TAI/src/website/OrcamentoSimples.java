@@ -11,16 +11,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.EstadoDAO;
-import entidades.Estado;
+import dao.CidadeDAO;
+import entidades.Cidade;
 
 /**
  * Servlet implementation class OrcamentoSimples
  */
-@WebServlet({"/orcamento/*"})
+@WebServlet({"/orcamento"})
 public class OrcamentoSimples extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static EstadoDAO estadoDAO = EstadoDAO.getInstance();
+	private static CidadeDAO cidadeDAO = CidadeDAO.getInstance();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -34,32 +34,30 @@ public class OrcamentoSimples extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-
+		
 		//acessa o banco de dados
-		ArrayList<Estado> estados = estadoDAO.getTodosEstados();
+		ArrayList<Cidade> cidades = cidadeDAO.getTodasCidades();
 		
 		//total de estados do país
-		int numeroEstados = estados.size();
+		int numeroCidades = cidades.size();
 		
 		//cria listas do tamanho deste total
-		int[] idsEstados = new int[numeroEstados];
-		String[] nomesEstados = new String[numeroEstados];
-		String[] siglasEstados = new String[numeroEstados];
+		Integer[] idsEstados = new Integer[numeroCidades];
+		String[] nomesCidades = new String[numeroCidades];
+		String[] siglasEstados = new String[numeroCidades];
 		
 		//preenche as listas com as informacoes
-		for (int i=0; i < numeroEstados; i++){
-			idsEstados[i] = estados.get(i).getId();
-			nomesEstados[i] = estados.get(i).getNome();
-			siglasEstados[i] = estados.get(i).getSigla();
+		for (int i=0; i < numeroCidades; i++){
+			idsEstados[i] = cidades.get(i).getId();
+			nomesCidades[i] = cidades.get(i).getNome();
+			
 		}
 		
-		request.setAttribute("nomesEstados", nomesEstados);
-		request.setAttribute("idsEstados", idsEstados);
+		request.setAttribute("nomesCidades", nomesCidades);
+		request.setAttribute("idsCidades", idsEstados);
 		request.setAttribute("siglasEstados", siglasEstados);
 		
-		ServletContext sc = this.getServletContext();
-		RequestDispatcher rd = sc.getRequestDispatcher("/orcamentoSimples.jsp");
-		rd.forward(request, response);
+		request.getRequestDispatcher("/orcamentoSimples.jsp").forward(request, response);
 	}
 
 	/**
@@ -68,8 +66,10 @@ public class OrcamentoSimples extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//TODO tratar dados enviados pelo usuario, calcular orc. simples, redirecionar para pagina de resultado
 		
-		ServletContext sc = this.getServletContext();
-		RequestDispatcher rd = sc.getRequestDispatcher("/resultadoSimples.jsp");
-		rd.forward(request, response);
+		//mostrar resultado, jsp com link para orcamentoCompleto
+		
+//		ServletContext sc = this.getServletContext();
+//		RequestDispatcher rd = sc.getRequestDispatcher("/resultadoSimples.jsp");
+//		rd.forward(request, response);
 	}
 }

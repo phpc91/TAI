@@ -12,19 +12,18 @@
 	<title>TAI</title>
 </head>
 <body>
-	<%String[] nomesEstados = (String[]) request.getAttribute("nomesEstados"); %>
-	<%System.out.println(nomesEstados!=null); %>
-	<%Integer[] idsEstados = (Integer[]) request.getAttribute("idsEstados"); %>
+	<%String[] nomesCidades = (String[]) request.getAttribute("nomesCidades"); %>
+	<%Integer[] idsCidades = (Integer[]) request.getAttribute("idsCidades"); %>
 	
 	<h1>Orçamento rápido</h1>
 	<div style="text-align:center">
-		<form action="/TAI/resultado/resultadoSimples.jsp" method="post"> <!-- form action? -->
+		<form action="resultado" method="post"> <!-- form action? -->
 			<p title="Inserir apenas números">Valor da conta de luz:</p> <input type="number" name="valor"><br><br>
 			<!-- <p title="Inserir apenas números">CEP:</p> <input type="number" name="cep"><br><br> <!-- validar CEP -->
 			Estado:<br> 
 			<select name="Estado">
-				<% for (int i = 0; i < nomesEstados.length; i++){ %>
-				<option value="<%= idsEstados[i] %>"><%= nomesEstados[i] %></option>
+				<% for (int i = 0; i < nomesCidades.length; i++){ %>
+				<option value="<%= idsCidades[i] %>"><%= nomesCidades[i] %></option>
 				<% } %>
 			</select>
 			<br><input type="submit" value="Calcular">
