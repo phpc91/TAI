@@ -1,7 +1,6 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -12,9 +11,6 @@ import entidades.Estado;
 public class EstadoDAO implements InterfaceEstadoDAO {
 	
 	private static final EstadoDAO instance = new EstadoDAO();
-	//esconder credenciais de conexao
-	private String user="admin", passwd="admin123";
-	private String endpoint="tai-db.cyki8d0w5wwv.sa-east-1.rds.amazonaws.com/database";
 	
 	public EstadoDAO(){
 		try{
@@ -22,10 +18,6 @@ public class EstadoDAO implements InterfaceEstadoDAO {
 		} catch (ClassNotFoundException e){
 			e.printStackTrace();
 		}
-	}
-	
-	public Connection createConnection() throws SQLException{
-		return DriverManager.getConnection("jdbc:mariadb://"+endpoint+"?user="+user+"&password="+passwd);
 	}
 
 	public static EstadoDAO getInstance() {
@@ -36,7 +28,7 @@ public class EstadoDAO implements InterfaceEstadoDAO {
 		ArrayList<Estado> estados = new ArrayList<Estado>();
 		
 		try{
-			Connection conn = createConnection();
+			Connection conn = Conexao.createConnection();
 			Statement statement = conn.createStatement();
 
 			ResultSet resultSet = statement.executeQuery("SELECT * FROM Estado ORDER BY id_estado");
@@ -63,7 +55,7 @@ public class EstadoDAO implements InterfaceEstadoDAO {
 		Estado estado = new Estado();
 		
 		try{
-			Connection conn = createConnection();
+			Connection conn = Conexao.createConnection();
 			Statement stat = conn.createStatement();
 			
 			ResultSet result = stat.executeQuery("SELECT * FROM Estado WHERE nome_estado LIKE '" +nome+ "%'");
@@ -83,10 +75,10 @@ public class EstadoDAO implements InterfaceEstadoDAO {
 	}
 	
 	public Estado getEstadoPorSigla(String sigla) {
-Estado estado = new Estado();
+		Estado estado = new Estado();
 		
 		try{
-			Connection conn = createConnection();
+			Connection conn = Conexao.createConnection();
 			Statement stat = conn.createStatement();
 			
 			ResultSet result = stat.executeQuery("SELECT * FROM Estado WHERE sigla LIKE '" +sigla+ "%'");
@@ -105,11 +97,28 @@ Estado estado = new Estado();
 		return estado;
 	}
 
-	public void atualizaEstado() {
-		//TODO implementar EstadoDAO.atualizaEstado (PreparedStatement, setString, executeUpdate)
+	public Estado getEstadoPorId(int id) {
+		Estado estado = new Estado();
+		
+		try{
+			Connection conn = Conexao.createConnection();
+			Statement stat = conn.createStatement();
+			
+			ResultSet result = stat.executeQuery("SELECT * FROM Estado WHERE id_estado LIKE '" +id+ "%'");
+			result.next();
+			
+			estado.setId(result.getInt("id_estado"));
+			estado.setNome(result.getString("nome_estado"));
+			estado.setSigla(result.getString("sigla"));
+			
+			conn.close();
+			
+		} catch (SQLException e){
+			e.printStackTrace();
+		}
+		
+		return estado;
 	}
+	
 
-	public void apagaEstado() {
-		//TODO implementar EstadoDAO.apagaEstado (PreparedStatement, setString, executeUpdate)
-	}
 }
