@@ -13,6 +13,8 @@ import entidades.Estado;
 public class CidadeDAO implements InterfaceCidadeDAO {
 	
 	private static final CidadeDAO instance = new CidadeDAO();
+	private static final EstadoDAO estadoDAO = EstadoDAO.getInstance();
+	private static final ConcDAO concDAO = ConcDAO.getInstance();
 	
 	public CidadeDAO(){
 		try{
@@ -29,14 +31,12 @@ public class CidadeDAO implements InterfaceCidadeDAO {
 	@Override
 	public ArrayList<Cidade> getTodasCidades() {
 		ArrayList<Cidade> cidades = new ArrayList<>();
-		EstadoDAO estadoDAO = EstadoDAO.getInstance();
-		ConcDAO concDAO = ConcDAO.getInstance();
 		
 		try{
 			Connection conn = Conexao.createConnection();
 			Statement statement = conn.createStatement();
 
-			ResultSet resultSet = statement.executeQuery("SELECT * FROM Estado ORDER BY id_estado");
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM Cidade ORDER BY nome_cidade");
 			
 			while (resultSet.next()){
 				
@@ -69,8 +69,24 @@ public class CidadeDAO implements InterfaceCidadeDAO {
 
 	@Override
 	public Cidade getCidadePorId(int idCidade) {
-		// TODO implementar
-		return null;
+		Cidade cidade = new Cidade();
+		
+		try{
+			Connection conn = Conexao.createConnection();
+			Statement statement = conn.createStatement();
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM Cidade WHERE id_cidade LIKE '" +idCidade+ "%'");
+			resultSet.next();
+			
+			cidade.setConc(concDAO.getConcessionariaPorId(resultSet.getInt("conc_id")));
+			cidade.setEstado(estadoDAO.getEstadoPorId(resultSet.getInt("estado_id")));
+			cidade.setId(resultSet.getInt("id_cidade"));
+			cidade.setNome(resultSet.getString("nome_cidade"));
+			
+		} catch (SQLException e){
+			e.printStackTrace();
+		}
+		
+		return cidade;
 	}
 
 }

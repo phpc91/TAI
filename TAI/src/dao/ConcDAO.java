@@ -33,7 +33,7 @@ public class ConcDAO implements InterfaceConcDAO {
 			Connection conn = Conexao.createConnection();
 			Statement statement = conn.createStatement();
 
-			ResultSet resultSet = statement.executeQuery("SELECT * FROM Estado ORDER BY id_estado");
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM Concessionaria ORDER BY nome_conc");
 			
 			while (resultSet.next()){
 				Concessionaria conc = new Concessionaria();
@@ -73,7 +73,7 @@ public class ConcDAO implements InterfaceConcDAO {
 			Connection conn = Conexao.createConnection();
 			Statement statement = conn.createStatement();
 
-			ResultSet resultSet = statement.executeQuery("SELECT * FROM Estado ORDER BY id_estado");
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM Concessionaria ORDER BY nome_conc");
 			resultSet.next(); //TODO if(resultSet.next) -- se sim, impactar todos DAOs?
 			
 			conc.setId(resultSet.getInt("id_conc"));
