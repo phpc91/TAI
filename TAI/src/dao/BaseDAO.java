@@ -22,5 +22,5 @@ public abstract class BaseDAO {
 		return DriverManager.getConnection("jdbc:mariadb://"+endpoint+"?user="+user+"&password="+passwd);
 	}
 	
-	//TODO implementar cache aqui
+	//TODO implementar cache aqui -- try cache, else db
 }
