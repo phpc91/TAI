@@ -9,17 +9,9 @@ import java.util.ArrayList;
 import entidades.Cidade;
 import entidades.Concessionaria;
 
-public class ConcDAO implements InterfaceConcDAO {
+public class ConcDAO extends BaseDAO implements InterfaceConcDAO {
 	
 	private static final ConcDAO instance = new ConcDAO();
-	
-	public ConcDAO(){
-		try{
-			Class.forName("org.mariadb.jdbc.Driver");
-		} catch (ClassNotFoundException e){
-			e.printStackTrace();
-		}
-	}
 
 	public static ConcDAO getInstance() {
 		return instance;
@@ -30,7 +22,7 @@ public class ConcDAO implements InterfaceConcDAO {
 		ArrayList<Concessionaria> concessionarias = new ArrayList<>();
 		
 		try{
-			Connection conn = Conexao.createConnection();
+			Connection conn = createConnection();
 			Statement statement = conn.createStatement();
 
 			ResultSet resultSet = statement.executeQuery("SELECT * FROM Concessionaria ORDER BY nome_conc");
@@ -70,7 +62,7 @@ public class ConcDAO implements InterfaceConcDAO {
 		Concessionaria conc = new Concessionaria();
 		
 		try{
-			Connection conn = Conexao.createConnection();
+			Connection conn = createConnection();
 			Statement statement = conn.createStatement();
 
 			ResultSet resultSet = statement.executeQuery("SELECT * FROM Concessionaria ORDER BY nome_conc");

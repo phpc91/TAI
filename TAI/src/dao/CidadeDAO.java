@@ -10,19 +10,11 @@ import entidades.Cidade;
 import entidades.Concessionaria;
 import entidades.Estado;
 
-public class CidadeDAO implements InterfaceCidadeDAO {
+public class CidadeDAO extends BaseDAO implements InterfaceCidadeDAO {
 	
 	private static final CidadeDAO instance = new CidadeDAO();
 	private static final EstadoDAO estadoDAO = EstadoDAO.getInstance();
 	private static final ConcDAO concDAO = ConcDAO.getInstance();
-	
-	public CidadeDAO(){
-		try{
-			Class.forName("org.mariadb.jdbc.Driver");
-		} catch (ClassNotFoundException e){
-			e.printStackTrace();
-		}
-	}
 
 	public static CidadeDAO getInstance() {
 		return instance;
@@ -33,7 +25,7 @@ public class CidadeDAO implements InterfaceCidadeDAO {
 		ArrayList<Cidade> cidades = new ArrayList<>();
 		
 		try{
-			Connection conn = Conexao.createConnection();
+			Connection conn = createConnection();
 			Statement statement = conn.createStatement();
 
 			ResultSet resultSet = statement.executeQuery("SELECT * FROM Cidade ORDER BY nome_cidade");
@@ -72,7 +64,7 @@ public class CidadeDAO implements InterfaceCidadeDAO {
 		Cidade cidade = new Cidade();
 		
 		try{
-			Connection conn = Conexao.createConnection();
+			Connection conn = createConnection();
 			Statement statement = conn.createStatement();
 			ResultSet resultSet = statement.executeQuery("SELECT * FROM Cidade WHERE id_cidade LIKE '" +idCidade+ "%'");
 			resultSet.next();

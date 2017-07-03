@@ -8,17 +8,9 @@ import java.util.ArrayList;
 
 import entidades.Estado;
 
-public class EstadoDAO implements InterfaceEstadoDAO {
+public class EstadoDAO extends BaseDAO implements InterfaceEstadoDAO {
 	
 	private static final EstadoDAO instance = new EstadoDAO();
-	
-	public EstadoDAO(){
-		try{
-			Class.forName("org.mariadb.jdbc.Driver");
-		} catch (ClassNotFoundException e){
-			e.printStackTrace();
-		}
-	}
 
 	public static EstadoDAO getInstance() {
 		return instance;
@@ -28,7 +20,7 @@ public class EstadoDAO implements InterfaceEstadoDAO {
 		ArrayList<Estado> estados = new ArrayList<Estado>();
 		
 		try{
-			Connection conn = Conexao.createConnection();
+			Connection conn = createConnection();
 			Statement statement = conn.createStatement();
 
 			ResultSet resultSet = statement.executeQuery("SELECT * FROM Estado ORDER BY id_estado");
@@ -55,7 +47,7 @@ public class EstadoDAO implements InterfaceEstadoDAO {
 		Estado estado = new Estado();
 		
 		try{
-			Connection conn = Conexao.createConnection();
+			Connection conn = createConnection();
 			Statement stat = conn.createStatement();
 			
 			ResultSet result = stat.executeQuery("SELECT * FROM Estado WHERE nome_estado LIKE '" +nome+ "%'");
@@ -78,7 +70,7 @@ public class EstadoDAO implements InterfaceEstadoDAO {
 		Estado estado = new Estado();
 		
 		try{
-			Connection conn = Conexao.createConnection();
+			Connection conn = createConnection();
 			Statement stat = conn.createStatement();
 			
 			ResultSet result = stat.executeQuery("SELECT * FROM Estado WHERE sigla LIKE '" +sigla+ "%'");
@@ -101,7 +93,7 @@ public class EstadoDAO implements InterfaceEstadoDAO {
 		Estado estado = new Estado();
 		
 		try{
-			Connection conn = Conexao.createConnection();
+			Connection conn = createConnection();
 			Statement stat = conn.createStatement();
 			
 			ResultSet result = stat.executeQuery("SELECT * FROM Estado WHERE id_estado LIKE '" +id+ "%'");
