@@ -17,16 +17,19 @@
 	
 	<h1>Orçamento rápido</h1>
 	<div style="text-align:center">
-		<form action="resultado" method="post"> <!-- form action? -->
-			<p title="Inserir apenas números">Valor da conta de luz:</p> <input type="number" name="valor"><br><br>
+		<form method="post" action="${pageContext.request.contextPath}/orcamento"> <!-- form action? -->
+			<p title="Inserir apenas números. É necessário que o valor seja acima de R$10,00">
+			Valor da conta de luz:</p> <input type="number" name="valor" id="valor"><br><br>
 			<!-- <p title="Inserir apenas números">CEP:</p> <input type="number" name="cep"><br><br> <!-- validar CEP -->
-			Estado:<br> 
-			<select name="Estado">
+			<p title="Cidade onde reside">Cidade:</p> 
+			<select name="cidade" id="cidade">
 				<% for (int i = 0; i < nomesCidades.length; i++){ %>
 				<option value="<%= idsCidades[i] %>"><%= nomesCidades[i] %></option>
 				<% } %>
 			</select>
-			<br><input type="submit" value="Calcular">
+			<p title=""></p> <input type="radio" value="Fisica">Pessoa Física<br>
+			<p title=""></p> <input type="radio" value="Juridica">Pessoa Jurídica<br>
+			<br><br><input type="submit" value="Calcular">
 		</form>
 	</div>
 </body>

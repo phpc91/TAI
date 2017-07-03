@@ -1,9 +1,6 @@
 package controller;
 
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,38 +8,36 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Home
+ * Servlet implementation class OrcamentoCompleto
  */
-@WebServlet(name="HomeController", urlPatterns={"/index"})
-public class HomeController extends HttpServlet {
+@WebServlet("/orcamentoCompleto")
+public class OrcamentoCompleto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public HomeController() {
+    public OrcamentoCompleto() {
         super();
+        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-//		response.sendRedirect("TAI/Home.jsp");
-		System.out.println(request.getParameter("valor"));
-//
-//		ServletContext sc = this.getServletContext();
-//		RequestDispatcher rd = sc.getRequestDispatcher("/home.jsp");
-//		rd.forward(request, response);
+		
+		request.getRequestDispatcher("/resultadoCompleto.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		doGet(request, response);
-		System.out.println(request.getParameter("valor"));
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }
