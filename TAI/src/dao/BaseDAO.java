@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public abstract class BaseDAO {
 	
-	//passar admin e senha para properties? cripto?
+	//TODO passar admin e senha para properties? cripto?
 	private static String user="admin", passwd="admin123",
 			endpoint="tai-db.cyki8d0w5wwv.sa-east-1.rds.amazonaws.com/database";
 	
