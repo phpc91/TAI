@@ -15,15 +15,5 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry kind="lib" path="C:/Users/ph-pc/Downloads/lettuce-4.3.2.Final.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="https://lettuce.io/lettuce-4/release/api/"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/ph-pc/Downloads/gson-2.8.1.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="https://www.javadoc.io/doc/com.google.code.gson/gson/2.8.1"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

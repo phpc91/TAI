@@ -19,14 +19,13 @@ public class OrcamentoCompleto extends HttpServlet {
      */
     public OrcamentoCompleto() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		// TODO implementar 
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 		request.getRequestDispatcher("/resultadoCompleto.jsp").forward(request, response);
@@ -36,7 +35,7 @@ public class OrcamentoCompleto extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		// TODO implementar
 		doGet(request, response);
 	}
 

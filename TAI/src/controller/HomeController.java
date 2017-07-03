@@ -2,8 +2,6 @@ package controller;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,21 +26,15 @@ public class HomeController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-//		response.sendRedirect("TAI/Home.jsp");
-		System.out.println(request.getParameter("valor"));
-//
-//		ServletContext sc = this.getServletContext();
-//		RequestDispatcher rd = sc.getRequestDispatcher("/home.jsp");
-//		rd.forward(request, response);
+		//TODO implementar?
+//		request.getRequestDispatcher("/resultadoSimples.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		doGet(request, response);
-		System.out.println(request.getParameter("valor"));
+		//TODO implementar?
 	}
 
 }
