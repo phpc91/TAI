@@ -2,6 +2,8 @@ package controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Enumeration;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,7 +37,7 @@ public class OrcamentoSimples extends HttpServlet {
 		//acessa o banco de dados
 		ArrayList<Cidade> cidades = cidadeDAO.getTodasCidades();
 		
-		//total de estados do país
+		//total de estados do paï¿½s
 		int numeroCidades = cidades.size();
 		
 		//cria listas do tamanho deste total
@@ -52,6 +54,7 @@ public class OrcamentoSimples extends HttpServlet {
 		request.setAttribute("nomesCidades", nomesCidades);
 		request.setAttribute("idsCidades", idsCidades);
 		
+		request.setCharacterEncoding("UTF-8");
 		request.getRequestDispatcher("/orcamentoSimples.jsp").forward(request, response);
 	}
 
@@ -60,10 +63,17 @@ public class OrcamentoSimples extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//TODO tratar dados enviados pelo usuario, calcular orc. simples, redirecionar para pagina de resultado
-		
+		request.setCharacterEncoding("UTF-8");
 		//mostrar resultado, jsp com link para orcamentoCompleto
-		int idCidade = Integer.valueOf(request.getParameter("cidade"));
-		Cidade cidade = cidadeDAO.getCidadePorId(idCidade);
+		Enumeration<String> todos = request.getParameterNames();
+		while(todos.hasMoreElements()){
+			String param = todos.nextElement(); 
+			System.out.println(param+": "+request.getParameter(param));
+		}
+//		int idCidade = Integer.valueOf(request.getParameter("cidade"));
+//		Cidade cidade = cidadeDAO.getCidadePorId(idCidade);
+		String nomeCidade = request.getParameter("cidade");
+		Cidade cidade = cidadeDAO.getCidadePorNome(nomeCidade);
 		float tarifa = cidade.getConc().getTarifa(); //R$/kWh
 		float consumo = (Float.valueOf(request.getParameter("valor")))/tarifa; //kWh --minimo = 30kWh
 		float consumoPlacas = consumo - 30; //24*30 hrs/mes [kWh]

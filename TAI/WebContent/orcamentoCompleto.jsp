@@ -41,7 +41,15 @@ html, body {
 	padding-left: 10px;
 }
 </style>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet"
+	href="https://code.getmdl.io/1.3.0/material.blue-indigo.min.css" />
+<link rel="stylesheet"
+	href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
+	type="text/css">
+<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+<meta charset="UTF-8">
 <title>TAI</title>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 <meta charset="utf-8">
@@ -58,45 +66,55 @@ html, body {
 </body> -->
 <body>
 	<h1>Orçamento Detalhado</h1>
-	<div id="form">
+	<div id="form" style="text-align: center">
 		<form method="post" action="retornaremos.jsp">
 			<!-- form action? -->
-			<p title="Nome completo">Nome:</p>
-			<input type="text" name="nome" id="nome"><br>
-			<br>
-			<p title="Insira apenas números">Telefone para contato:</p>
-			<input type="tel" name="telefone" id="telefone"><br>
-			<br>
-			<p>Email:</p>
-			<input type="email" name="email" id="email"><br>
-			<br>
-			<p
-				title="Inserir apenas números. É necessário que o valor seja acima de R$10,00">
-				Valor da conta de luz:</p>
-			<input type="number" name="valor" id="valor"><br>
-			<br>
-			<p>Endereço:</p>
-			<input type="text" name="endereco" id="endereco"><br>
-			<br>
-			<p>Como prefere que entremos em contato?</p>
-			<input type="radio" name="pref" id="pref" value="Telefone">Telefone<br>
-			<input type="radio" name="pref" id="pref" value="Email">Email<br>
-			<br>
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				<input class="mdl-textfield__input" type="text" id="nome">
+				<label class="mdl-textfield__label" for="nome">Nome Completo</label>
+			</div><br>
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				<input class="mdl-textfield__input" type="text" id="tel" pattern="-?[0-9]*(\.[0-9]+)?" title="Insira apenas números">
+				<label class="mdl-textfield__label" for="tel">Telefone</label>
+			</div><br>
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				<input class="mdl-textfield__input" type="text" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="Insira endereço de email válido">
+				<label class="mdl-textfield__label" for="tel">Email</label>
+			</div><br>
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				<input class="mdl-textfield__input" type="text" id="valor" pattern="-?[0-9]*(\.[0-9]+)?" title="Insira apenas números">
+				<label class="mdl-textfield__label" for="valor">Valor da Conta de Luz</label>
+			</div><br>
+			<!-- <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				<input class="mdl-textfield__input" type="text" id="endereco" title="Logradouro, número, CEP, cidade, estado">
+				<label class="mdl-textfield__label" for="endereco">Endereço</label>
+			</div><br>  -->
+			<div style="font-family:helvetica">
+				<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="telcontato">
+					<input type="radio" id="telcontato" class="mdl-radio__button" name="contato" value="1" checked> 
+					<span class="mdl-radio__label">Telefone</span>
+				</label>&emsp;&emsp;
+				
+				<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="emailcontato">
+					<input type="radio" id="emailcontato" class="mdl-radio__button" name="contato" value="2"> 
+					<span class="mdl-radio__label">Email</span>
+				</label>
+			</div>
+			
 			<p>Deseja pré agendar uma visita técnica?</p>
-			<input type="date" name="data" id="data"><br>
+			<input type="date" name="data" id="data"><br> <br>
 			<br> <br>
-			<br>
 			<p>Foto da conta de luz</p>
-			<input type="file">
-			<input type="submit" value="Calcular">
+			<input type="file"> <input type="submit" value="Calcular">
 		</form>
 	</div>
 	<div id="floating-panel">
-				<input id="address" type="textbox"> <input id="submit"
-					type="button" value="Localizar">
-			</div>
-			<div id="map"></div>
+		<input id="enderecoCasa" type="text"> 
+		<input id="buscar" type="button" value="Localizar">
+	</div>
+	<div id="map"></div>
 
+	<!-- TODO satelite, autozoom, zerar pins após nova busca, balao info do pin, reverse geocode-> coordenadas p/ backend -->
 	<script>
 		function initMap() {
 			var map = new google.maps.Map(document.getElementById('map'), {
@@ -108,14 +126,14 @@ html, body {
 			});
 			var geocoder = new google.maps.Geocoder();
 
-			document.getElementById('submit').addEventListener('click',
+			document.getElementById('buscar').addEventListener('click',
 					function() {
 						geocodeAddress(geocoder, map);
 					});
 		}
 
 		function geocodeAddress(geocoder, resultsMap) {
-			var address = document.getElementById('address').value;
+			var address = document.getElementById('enderecoCasa').value;
 			geocoder
 					.geocode(
 							{
@@ -127,7 +145,8 @@ html, body {
 											.setCenter(results[0].geometry.location);
 									var marker = new google.maps.Marker({
 										map : resultsMap,
-										position : results[0].geometry.location
+										position : results[0].geometry.location,
+										draggable : true
 									});
 								} else {
 									alert('Geocode was not successful for the following reason: '
