@@ -11,7 +11,7 @@ import entidades.Concessionaria;
 import entidades.Estado;
 
 public class CidadeDAO extends BaseDAO implements InterfaceCidadeDAO {
-	
+	//TODO melhorar performance --muitas idas ao BD na nuvem. cache?
 	private static final CidadeDAO instance = new CidadeDAO();
 	private static final EstadoDAO estadoDAO = EstadoDAO.getInstance();
 	private static final ConcDAO concDAO = ConcDAO.getInstance();
@@ -54,9 +54,25 @@ public class CidadeDAO extends BaseDAO implements InterfaceCidadeDAO {
 	}
 
 	@Override
-	public Cidade getCidadePorNome(String cidade) {
-		// TODO implementar
-		return null;
+	public Cidade getCidadePorNome(String nome) {
+		Cidade cidade = new Cidade();
+		
+		try{
+			Connection conn = createConnection();
+			Statement statement = conn.createStatement();
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM Cidade WHERE nome_cidade LIKE '" +nome+ "%'");
+			resultSet.next();
+			
+			cidade.setConc(concDAO.getConcessionariaPorId(resultSet.getInt("conc_id")));
+			cidade.setEstado(estadoDAO.getEstadoPorId(resultSet.getInt("estado_id")));
+			cidade.setId(resultSet.getInt("id_cidade"));
+			cidade.setNome(resultSet.getString("nome_cidade"));
+			
+		} catch (SQLException e){
+			e.printStackTrace();
+		}
+		
+		return cidade;
 	}
 
 	@Override
