@@ -118,7 +118,7 @@ html, body {
 					class="mdl-radio__label">Email</span>
 				</label>
 			</div>
-
+<!-- TODO trocar botoes para MDL, icone de upload -->
 			<p>Deseja pré agendar uma visita técnica?</p>
 			<input type="date" name="data" id="data"><br> <br>
 			<br> <br>

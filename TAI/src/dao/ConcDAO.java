@@ -73,7 +73,6 @@ public class ConcDAO extends BaseDAO implements InterfaceConcDAO {
 			conc.setTarifa(resultSet.getFloat("tarifa"));
 			
 			conn.close();
-			
 		} catch (SQLException e){
 			e.printStackTrace();
 		}

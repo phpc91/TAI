@@ -68,6 +68,7 @@ public class CidadeDAO extends BaseDAO implements InterfaceCidadeDAO {
 			cidade.setId(resultSet.getInt("id_cidade"));
 			cidade.setNome(resultSet.getString("nome_cidade"));
 			
+			conn.close();			
 		} catch (SQLException e){
 			e.printStackTrace();
 		}
@@ -90,9 +91,10 @@ public class CidadeDAO extends BaseDAO implements InterfaceCidadeDAO {
 			cidade.setId(resultSet.getInt("id_cidade"));
 			cidade.setNome(resultSet.getString("nome_cidade"));
 			
+			conn.close();
 		} catch (SQLException e){
 			e.printStackTrace();
-		}
+		} 
 		
 		return cidade;
 	}
