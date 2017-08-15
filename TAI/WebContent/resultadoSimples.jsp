@@ -4,11 +4,23 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-	<style>
-		h1	{text-align:center;}
-		h3	{text-align:center;}
-		h4	{text-align:center;}
-	</style>
+<style>
+h1 {
+	text-align: center;
+}
+
+h3 {
+	text-align: center;
+}
+
+h4 {
+	text-align: center;
+}
+
+.material-icons.branco {
+	color: #FFFFFF;
+}
+</style>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-blue.min.css" />
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
@@ -39,8 +51,15 @@
 		<p>Para isso, serão necessárias <%= numeroDePlacas %> painéis solares</p>
 		<p>Totalizando R$<%= formatter.format(precoFinal) %></p>
 		
-		<a href="/Solar/orcamentoCompleto.jsp">Clique aqui para realizar um orçamento mais detalhado</a><br>
-		<a href="/Solar/">Voltar à página inicial</a>
+		
+		<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="button" onclick="location.href='/Solar'" name="voltar">
+	    	<i class="mdl-icon-toggle__label material-icons">home</i>Voltar
+		</button>&ensp;&ensp;&ensp;
+		<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" 
+		type="button" onclick="location.href='/Solar/orcamentoCompleto.jsp'" 
+		name="voltar" style="padding-left: 24px">
+	    	Seguir para orçamento detalhado<i class="mdl-icon-toggle__label material-icons branco">arrow_forward</i>
+		</button>
 	</div>
 </body>
 </html>
