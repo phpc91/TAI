@@ -26,14 +26,14 @@ div {
 	href="https://code.getmdl.io/1.3.0/material.blue-indigo.min.css">
 <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 <meta charset="UTF-8">
-<title>TAI</title>
+<title>Solar</title>
 </head>
 <body>
 	<div class="container">
 		<h3>Obrigado pelo seu contato! Entraremos em contato em breve!</h3>
 		<button
 			class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
-			type="button" onclick="location.href='/TAI'" name="voltar">
+			type="button" onclick="location.href='/Solar'" name="voltar">
 			<i class="mdl-icon-toggle__label material-icons">home</i>Home
 		</button>
 		&ensp;&ensp;&ensp;

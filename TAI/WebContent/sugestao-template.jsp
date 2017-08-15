@@ -3,7 +3,7 @@
 <!-- TODO consertar imagens, evoluir como um todo -->
 <!DOCTYPE html>
 <html>
-<title>TAI</title>
+<title>Solar</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -12,7 +12,7 @@
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
   <div class="w3-bar w3-white w3-wide w3-padding w3-card-2">
-    <a href="#home" class="w3-bar-item w3-button"><b>TAI</b> Painéis Solares</a>
+    <a href="#home" class="w3-bar-item w3-button"><b>Solar</b> Painéis Solares</a>
     <!-- Float links to the right. Hide them on small screens -->
     <div class="w3-right w3-hide-small">
       <a href="#projects" class="w3-bar-item w3-button">Projetos</a>
@@ -26,7 +26,7 @@
 <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
   <img class="w3-image" src="/w3images/architect.jpg" alt="Architecture" width="1500" height="800">
   <div class="w3-display-middle w3-margin-top w3-center">
-    <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>TAI</b></span> <span class="w3-hide-small w3-text-light-grey"><br>Painéis Solares</span></h1>
+    <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>Solar</b></span> <span class="w3-hide-small w3-text-light-grey"><br>Painéis Solares</span></h1>
   </div>
 </header>
 

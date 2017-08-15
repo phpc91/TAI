@@ -4,8 +4,13 @@
 <html lang="pt-BR">
 <head>
 <style>
-div {
-	text-align: center
+.main {
+	text-align: center;
+}
+.video {
+	width: 854px;
+	position: relative;
+	margin-left: 247.5px;
 }
 </style>
 <link rel="stylesheet"
@@ -14,20 +19,37 @@ div {
 	href="https://code.getmdl.io/1.3.0/material.blue-indigo.min.css">
 <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 <meta charset="UTF-8">
-<title>TAI</title>
+<title>Solar</title>
 </head>
 <body>
-	<!-- TODO passar para google card -->
-	<div class="container">
+	<div class="main">
 		<h1>Home</h1>
-		<h6>Estime aqui seu investimento</h6>
+		<div class="video">
+			<h6>Veja abaixo um vídeo explicativo de como funcionam os painéis solares</h6>
+			<iframe id="video" width="854" height="480" src="https://www.youtube.com/embed/ilpVP-loDak?autoplay=1&iv_load_policy=3&rel=0" frameborder="0" allowfullscreen> 
+			</iframe>
+		</div>
+		<br>
+		<div class="ebook">
+			<h6>Deseja baixar um ebook grátis com mais detalhes? Insira aqui seu email e baixe!</h6>
+			<form method="get" action="paineis-solares.png">
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+					<input class="mdl-textfield__input" type="text" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="Insira endereço de email válido"> 
+					<label	class="mdl-textfield__label" for="tel">Email</label>
+				</div>
+				<input class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored" type="submit" value="Baixar!">
+			</form>
+		</div>
+		<br>
+		<h4>Calculadoras interativas de investimento</h4>
+		<h6>Estime aqui!</h6>
 
 		<!-- Flat button with ripple -->
 		<button
 			class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored"
 			style="width:215px"
 			id="simples"
-			onclick="location.href='/TAI/orcamento'" type="button">
+			onclick="location.href='/Solar/orcamento'" type="button">
 			<strong>Orçamento Simples</strong>
 		</button>
 		<div class="mdl-tooltip mdl-tooltip--large" for="simples">
@@ -40,7 +62,7 @@ div {
 			class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored"
 			style="width:215px"
 			id="completo"
-			onclick="location.href='/TAI/orcamentoCompleto.jsp'" type="button">
+			onclick="location.href='/Solar/orcamentoCompleto.jsp'" type="button">
 			<strong>Orçamento Detalhado</strong>
 		</button>
 		<div class="mdl-tooltip mdl-tooltip--large" for="completo">

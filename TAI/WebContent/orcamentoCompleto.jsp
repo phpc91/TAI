@@ -51,7 +51,7 @@ html, body {
 	type="text/css">
 <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 <meta charset="UTF-8">
-<title>TAI</title>
+<title>Solar</title>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 <meta charset="utf-8">
 </head>
