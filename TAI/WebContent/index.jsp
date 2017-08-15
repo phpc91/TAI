@@ -6,6 +6,7 @@
 <style>
 .main {
 	text-align: center;
+	height: 1015px;
 }
 .video {
 	width: 854px;
