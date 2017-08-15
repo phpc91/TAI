@@ -50,6 +50,7 @@ html, body {
 	href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
 	type="text/css">
 <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+<script async src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <meta charset="UTF-8">
 <title>Solar</title>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
@@ -68,7 +69,7 @@ html, body {
 <body>
 	<h1>Orçamento Detalhado</h1>
 	<div id="form" style="text-align: center">
-		<form method="post" action="retornaremos.jsp">
+		<form method="post" action="retornaremos.jsp" enctype="multipart/form-data">
 			<!-- form action? -->
 			<div
 				class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -103,7 +104,8 @@ html, body {
 				<input class="mdl-textfield__input" type="text" id="endereco" title="Logradouro, número, CEP, cidade, estado">
 				<label class="mdl-textfield__label" for="endereco">Endereço</label>
 			</div><br>  -->
-			<div style="font-family: helvetica">
+			<div>
+				<h6>Como prefere ser contatado?</h6>
 				<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect"
 					for="telcontato"> <input type="radio" id="telcontato"
 					class="mdl-radio__button" name="contato" value="1" checked>
@@ -118,12 +120,15 @@ html, body {
 					class="mdl-radio__label">Email</span>
 				</label>
 			</div>
-<!-- TODO trocar botoes para MDL, icone de upload -->
-			<p>Deseja pré agendar uma visita técnica?</p>
+			<br>
+			<h6>Deseja pré agendar uma visita técnica?</h6>
 			<input type="date" name="data" id="data"><br> <br>
 			<br> <br>
-			<p>Foto da conta de luz</p>
-			<input type="file"> <input type="submit" value="Calcular">
+			<h6>Faça o upload da sua conta de luz para obtermos uma precisão ainda maior!</h6>
+			<input class="ng-hide" id="arquivo" multiple type="file" />
+			<label for="arquivo" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
+			Escolher Arquivo</label>
+			<input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" value="Calcular">
 		</form><br>
 		<div id="floating-panel">
 			<input id="enderecoCasa" type="text"> 
@@ -142,6 +147,7 @@ html, body {
 					lng : -46.651651
 				}
 			});
+			map.setTilt(0);
 			var geocoder = new google.maps.Geocoder();
 
 			document.getElementById('buscar').addEventListener('click',
