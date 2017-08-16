@@ -112,7 +112,7 @@ p {
 	                <% } %>
 	            </ul>
        		</div>       		
-			<br><br>
+			<div style="height: 250px"></div>
 			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="button" onclick="location.href='/Solar'" name="voltar"> <!-- style="position:absolute;left:525px;"> -->
 		    	<i class="mdl-icon-toggle__label material-icons">arrow_back</i>Voltar
 			</button>&ensp;&ensp;&ensp;
