@@ -60,12 +60,12 @@ p {
 	<%String[] nomesCidades = (String[]) request.getAttribute("nomesCidades"); %>
 	<%Integer[] idsCidades = (Integer[]) request.getAttribute("idsCidades"); %>
 	
-	<div class="centered" style="width:300px">
+	<div class="centered" style="width:500px">
 		<h1>Orçamento rápido</h1>
 		<form method="post" action="${pageContext.request.contextPath}/orcamento" accept-charset="UTF-8" style="text-align:center"> <!-- form action? -->
-			<div>
+			<div style="width:500px">
 				<h6 title="" style="text-align:center"><strong>Valor da conta de luz:</strong></h6> 
-				<input class="mdl-slider mdl-js-slider" type="range" name="valor" id="valorSlider" min="10" max="1000" step="10" oninput="this.form.valorNumero.value=this.value" style="width:300px"><br>
+				<input class="mdl-slider mdl-js-slider" type="range" name="valor" id="valorSlider" min="10" max="10000" step="30" oninput="this.form.valorNumero.value=this.value" style="width:500px"><br>
 				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 128px">
 					<input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="valorNumero" min="10" max="10000" value="500" oninput="this.form.valorSlider.value=this.value" style="text-align:center;width:128px;margin:auto" />
 					<label class="mdl-textfield__label" for="valorNumero">R$</label>
