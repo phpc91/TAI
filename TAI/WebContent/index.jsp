@@ -14,6 +14,14 @@
 	margin-left: 247.5px;
 }
 </style>
+<link rel="shortcut icon" href="/Solar/resources/img/icon/favicon.ico">
+<link rel="icon" sizes="16x16 32x32 64x64" href="/Solar/resources/img/icon/favicon.ico">
+<link rel="icon" type="image/png" sizes="196x196" href="/Solar/resources/img/icon/favicon-192.png">
+<link rel="icon" type="image/png" sizes="160x160" href="/Solar/resources/img/icon/favicon-160.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/Solar/resources/img/icon/favicon-96.png">
+<link rel="icon" type="image/png" sizes="64x64" href="/Solar/resources/img/icon/favicon-64.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/Solar/resources/img/icon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/Solar/resources/img/icon/favicon-16.png">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet"
@@ -33,7 +41,7 @@
 		<br>
 		<div class="ebook">
 			<h6>Deseja baixar um ebook grátis com mais detalhes? Insira aqui seu email e baixe!</h6>
-			<form method="get" action="paineis-solares.png">
+			<form method="get" action="/Solar/resources/img/paineis-solares.png">
 				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 					<input class="mdl-textfield__input" type="text" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="Insira endereço de email válido"> 
 					<label	class="mdl-textfield__label" for="tel">Email</label>
