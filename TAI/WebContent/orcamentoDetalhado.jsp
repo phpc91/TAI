@@ -101,6 +101,8 @@
 		<br>
 		<br>
 		<label id="botao-form" for="submit-form" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Enviar dados</label>
+		&emsp;
+		<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" onclick="location.href='/Solar'">Voltar ao início</button>
 	</div>
 
 	<!-- TODO coordenadas p/ backend -->
