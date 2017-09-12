@@ -62,14 +62,14 @@ public class OrcamentoSimples extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//TODO tratar dados enviados pelo usuario, calcular orc. simples, redirecionar para pagina de resultado
 		request.setCharacterEncoding("UTF-8");
-		//mostrar resultado, jsp com link para orcamentoCompleto
+		System.out.println("1");
 		Enumeration<String> todos = request.getParameterNames();
 		while(todos.hasMoreElements()){
 			String param = todos.nextElement(); 
 			System.out.println(param+": "+request.getParameter(param));
 		}
+		System.out.println("2");
 //		int idCidade = Integer.valueOf(request.getParameter("cidade"));
 //		Cidade cidade = cidadeDAO.getCidadePorId(idCidade);
 		String nomeCidade = request.getParameter("cidade");
@@ -82,6 +82,8 @@ public class OrcamentoSimples extends HttpServlet {
 		int custoPorPlaca = 700;
 		int preco = numeroDePlacas * custoPorPlaca;
 		double precoFinal = 1.6*preco;
+		
+		
 		
 		request.setAttribute("numeroDePlacas", numeroDePlacas); //int
 		request.setAttribute("preco", preco); //int

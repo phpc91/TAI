@@ -71,7 +71,7 @@
 			class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored"
 			style="width:215px"
 			id="completo"
-			onclick="location.href='/Solar/orcamentoCompleto.jsp'" type="button">
+			onclick="location.href='/Solar/orcamento-detalhado'" type="button">
 			<strong>Orçamento Detalhado</strong>
 		</button>
 		<div class="mdl-tooltip mdl-tooltip--large" for="completo">
