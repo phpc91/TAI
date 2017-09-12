@@ -7,12 +7,10 @@
 <style>
 h1 {
 	text-align: center;
-	/*font-family: calibri*/
 }
 
 p {
 	text-align: center;
-	/*font-family: calibri*/
 }
 
 .centered {
@@ -82,7 +80,7 @@ p {
 			</div>
 			<br>
 			
-			<div class="wrapper">
+			<div class="wrapper" id="edificacao">
        			<h6 style="margin-bottom: 0px"><strong>Tipo de Edificação</strong></h6>
        			<ul class="list-control mdl-list">
        				<li class="mdl-list__item">
@@ -129,6 +127,3 @@ p {
 	</div>
 </body>
 </html>
-<!-- para selecionar a casa via google maps, 
-redirecionar usuário para maps.google.com, 
-pegar lat/lon do pto selecionado, retornar com local -->
