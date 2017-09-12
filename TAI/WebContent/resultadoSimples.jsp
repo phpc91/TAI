@@ -64,7 +64,7 @@ h4 {
 	    	<i class="mdl-icon-toggle__label material-icons">home</i>Voltar
 		</button>&ensp;&ensp;&ensp;
 		<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" 
-		type="button" onclick="location.href='/Solar/orcamentoCompleto.jsp'" 
+		type="button" onclick="location.href='/Solar/orcamento-detalhado'" 
 		name="voltar" style="padding-left: 24px">
 	    	Seguir para orçamento detalhado<i class="mdl-icon-toggle__label material-icons branco">arrow_forward</i>
 		</button>
