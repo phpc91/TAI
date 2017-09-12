@@ -10,14 +10,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class OrcamentoCompleto
  */
-@WebServlet("/orcamentoCompleto")
-public class OrcamentoCompleto extends HttpServlet {
+@WebServlet("/orcamento-detalhado")
+public class OrcamentoDetalhado extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public OrcamentoCompleto() {
+    public OrcamentoDetalhado() {
         super();
     }
 
@@ -28,7 +28,7 @@ public class OrcamentoCompleto extends HttpServlet {
 		// TODO implementar 
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-		request.getRequestDispatcher("/resultadoCompleto.jsp").forward(request, response);
+		request.getRequestDispatcher("/orcamentoDetalhado.jsp").forward(request, response);
 	}
 
 	/**
